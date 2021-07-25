@@ -18,6 +18,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
+import java.util.logging.Logger;
 import java.util.regex.Pattern;
 
 public final class DiscordMessagesProvider {
@@ -65,10 +66,16 @@ public final class DiscordMessagesProvider {
             builder.setDescription(applyPlaceholders(configuration.getEmbedDescription()));
         }
 
-        try {
-            Color color = Color.decode(configuration.getEmbedColor());
-            builder.setColor(color.getRGB());
-        } catch (NumberFormatException ignored) {
+        if(configuration.getEmbedColor() != null) {
+            try {
+                Color color = Color.decode(configuration.getEmbedColor());
+                builder.setColor(color.getRGB());
+            } catch (NumberFormatException exception) {
+                Logger logger = LiteBansAdditions.getInstance().getLogger();
+                logger.warning("Provided embed color is invalid!");
+                logger.warning("Color: " + configuration.getEmbedColor());
+                logger.warning("Color must be a valid HEX, if you don't want a color, use \"null\"");
+            }
         }
 
         if(configuration.getEmbedAuthorName() != null) {
@@ -122,7 +129,6 @@ public final class DiscordMessagesProvider {
             placeholders.put("%executor%", entry.getExecutorName());
         }
         long to = entry.getDateEnd();
-
         DateTimeFormatter formatter = getFormatter();
 
         if (entry.isPermanent()) {
