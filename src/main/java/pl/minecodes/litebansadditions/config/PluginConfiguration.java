@@ -17,6 +17,10 @@ import java.util.Map;
 @Header(" ")
 @Header("Plugin issues and questions:")
 @Header("https://github.com/Nikox3003/LiteBansAdditions/issues")
+@Header(" ")
+@Header("Sound and effect names must be valid Spigot names")
+@Header("https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/Sound.html")
+@Header("https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/potion/PotionEffectType.html")
 
 @Getter
 @Setter
