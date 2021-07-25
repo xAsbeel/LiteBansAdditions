@@ -12,6 +12,7 @@ import pl.minecodes.litebansadditions.commands.MainCommand;
 import pl.minecodes.litebansadditions.config.PluginConfiguration;
 import pl.minecodes.litebansadditions.handlers.WebhookHandler;
 import pl.minecodes.litebansadditions.listeners.PunishmentListener;
+import pl.minecodes.litebansadditions.util.UpdateChecker;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -38,6 +39,7 @@ public final class LiteBansAdditions extends JavaPlugin {
         liteBansListeners = new ArrayList<>();
 
         Metrics metrics = new Metrics(this, 12204);
+        UpdateChecker updateChecker = new UpdateChecker();
 
         configuration = ConfigManager.create(PluginConfiguration.class, (it) -> {
             it.withConfigurer(new YamlBukkitConfigurer(SectionSeparator.NEW_LINE));
