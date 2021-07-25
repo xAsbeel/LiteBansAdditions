@@ -7,7 +7,7 @@ public enum PunishmentType {
     KICK("kick", EntryListeningType.ADDED),
     WARN("warn", EntryListeningType.ADDED),
     UNBAN("ban", EntryListeningType.REMOVED),
-    UNMUTE("warn", EntryListeningType.REMOVED),
+    UNMUTE("mute", EntryListeningType.REMOVED),
     UNWARN("warn", EntryListeningType.REMOVED);
 
     private final String listenerName;
