@@ -1,0 +1,13 @@
+name: LiteBansAdditions
+version: ${project.version}
+main: pl.minecodes.litebansadditions.LiteBansAdditions
+api-version: 1.13
+depend: [LiteBans]
+author: Nikox3003
+description: LiteBans additions.
+website: https://minecodes.pl
+commands:
+  litebansadditions:
+    description: Reload LiteBansAdditions
+    aliases:
+      - lba
