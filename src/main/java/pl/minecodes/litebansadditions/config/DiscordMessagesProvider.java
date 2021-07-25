@@ -125,10 +125,13 @@ public final class DiscordMessagesProvider {
 
         DateTimeFormatter formatter = getFormatter();
 
-        if (to < 0) {
+        if (entry.isPermanent()) {
             placeholders.put("%punishedTo%", CONFIGURATION.getPlaceholderNeverExpires());
         } else {
-            LocalDateTime time = LocalDateTime.from(Instant.ofEpochMilli(to));
+            LocalDateTime time = LocalDateTime.ofInstant(
+                    Instant.ofEpochMilli(to),
+                    ZoneId.systemDefault()
+            );
             placeholders.put("%punishedTo%", formatter.format(time));
         }
 
