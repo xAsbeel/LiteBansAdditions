@@ -14,7 +14,7 @@ import org.bukkit.potion.PotionEffectType;
 @Names(strategy = NameStrategy.HYPHEN_CASE, modifier = NameModifier.TO_LOWER_CASE)
 public class EventConfiguration extends OkaeriConfig {
 
-    SoundConfiguration sound = new SoundConfiguration(Sound.BLOCK_ANVIL_DESTROY, 0.1F, 1);
+    SoundConfiguration sound = new SoundConfiguration();
     EffectConfiguration effect = new EffectConfiguration(PotionEffectType.CONFUSION.getName(), 90, 1, true, false);
     DiscordLoggingConfiguration discord = new DiscordLoggingConfiguration();
 
