@@ -36,6 +36,10 @@ public class PunishmentListener extends AbstractPunishmentListener {
         // LiteBans invokes listeners asynchronously
         // Bukkit API cannot be used off the main thread
         SchedulerUtil.run(() -> {
+            if(entry.isSilent() && !LiteBansAdditions.getConfiguration().isActionsOnSilentPunishments()) {
+                return;
+            }
+
             PunishmentType type = PunishmentType.get(entry.getType(), PunishmentType.EntryListeningType.ADDED);
             logOnDiscord(entry, type);
             playSound(type);
@@ -48,6 +52,9 @@ public class PunishmentListener extends AbstractPunishmentListener {
         // LiteBans invokes listeners asynchronously
         // Bukkit API cannot be used off the main thread
         SchedulerUtil.run(() -> {
+            if(entry.isSilent() && !LiteBansAdditions.getConfiguration().isActionsOnSilentPunishments()) {
+                return;
+            }
             PunishmentType type = PunishmentType.get(entry.getType(), PunishmentType.EntryListeningType.REMOVED);
             logOnDiscord(entry, type);
             playSound(type);

@@ -35,6 +35,7 @@ public class PluginConfiguration extends OkaeriConfig {
     private String placeholderNo = "No";
     @Comment("%punishedTo% if punishment is permanent")
     private String placeholderNeverExpires = "Never";
+    private boolean actionsOnSilentPunishments = false;
 
     private Map<PunishmentType, EventConfiguration> events = new HashMap<PunishmentType, EventConfiguration>() {{
         for (PunishmentType value : PunishmentType.values()) {
