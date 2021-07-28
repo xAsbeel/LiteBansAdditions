@@ -26,7 +26,7 @@ public class UpdateChecker {
         SchedulerUtil.runTaskTimerAsync(() -> {
             updateNeeded = checkUpdate();
             notifyAboutUpdate();
-        }, 0L, TimeUnit.HOURS.toSeconds(1) * 20L);
+        }, 0L, TimeUnit.HOURS.toSeconds(6) * 20L);
 
     }
 
@@ -72,12 +72,6 @@ public class UpdateChecker {
 
         Logger logger = LiteBansAdditions.getInstance().getLogger();
         logger.info(updateMessage);
-
-        Bukkit.getOnlinePlayers().forEach(player -> {
-            if(player.isOp()) {
-                MessageUtil.sendMessage(player, updateMessage);
-            }
-        });
     }
 
     public void notifyPlayerAboutUpdate(Player player) {
