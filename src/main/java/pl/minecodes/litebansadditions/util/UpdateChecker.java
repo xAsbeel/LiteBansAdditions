@@ -31,6 +31,11 @@ public class UpdateChecker {
     }
 
     public boolean checkUpdate() {
+        if (!LiteBansAdditions.getConfiguration().isCheckForUpdates()) {
+            updateNeeded = false;
+            return false;
+        }
+
         Logger logger = LiteBansAdditions.getInstance().getLogger();
         logger.info("Checking for updates...");
         try {

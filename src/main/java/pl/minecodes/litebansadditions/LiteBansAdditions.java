@@ -39,7 +39,6 @@ public final class LiteBansAdditions extends JavaPlugin {
         liteBansListeners = new ArrayList<>();
 
         Metrics metrics = new Metrics(this, 12204);
-        UpdateChecker updateChecker = new UpdateChecker();
 
         configuration = ConfigManager.create(PluginConfiguration.class, (it) -> {
             it.withConfigurer(new YamlBukkitConfigurer(SectionSeparator.NEW_LINE));
@@ -47,6 +46,10 @@ public final class LiteBansAdditions extends JavaPlugin {
             it.saveDefaults();
             it.load(true);
         });
+
+        if(configuration.isCheckForUpdates()) {
+            UpdateChecker updateChecker = new UpdateChecker();
+        }
 
         registerLiteBansListeners();
         getCommand("litebansadditions").setExecutor(new MainCommand());

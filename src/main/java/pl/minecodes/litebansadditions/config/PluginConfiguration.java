@@ -36,6 +36,8 @@ public class PluginConfiguration extends OkaeriConfig {
     @Comment("%punishedTo% if punishment is permanent")
     private String placeholderNeverExpires = "Never";
     private boolean actionsOnSilentPunishments = false;
+    @Comment("Controls plugin update checker. There shouldn't be a reason for you to disable this.")
+    private boolean checkForUpdates = true;
 
     private Map<PunishmentType, EventConfiguration> events = new HashMap<PunishmentType, EventConfiguration>() {{
         for (PunishmentType value : PunishmentType.values()) {
