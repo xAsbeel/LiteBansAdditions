@@ -6,7 +6,7 @@
 
     <groupId>pl.minecodes</groupId>
     <artifactId>LiteBansAdditions</artifactId>
-    <version>1.1.0</version>
+    <version>1.1.1</version>
     <packaging>jar</packaging>
 
     <name>LiteBansAdditions</name>
@@ -37,7 +37,31 @@
                     <relocations>
                         <relocation>
                             <pattern>org.bstats</pattern>
-                            <shadedPattern>pl.minecodes.litebansadditions.shaded</shadedPattern>
+                            <shadedPattern>pl.minecodes.litebansadditions.lib.bstats</shadedPattern>
+                        </relocation>
+                        <relocation>
+                            <pattern>eu.okaeri.configs</pattern>
+                            <shadedPattern>pl.minecodes.litebansadditions.lib.okaeri-configs</shadedPattern>
+                        </relocation>
+                        <relocation>
+                            <pattern>okhttp3</pattern>
+                            <shadedPattern>pl.minecodes.litebansadditions.lib.okhttp3</shadedPattern>
+                        </relocation>
+                        <relocation>
+                            <pattern>okio</pattern>
+                            <shadedPattern>pl.minecodes.litebansadditions.lib.okio</shadedPattern>
+                        </relocation>
+                        <relocation>
+                            <pattern>org.json</pattern>
+                            <shadedPattern>pl.minecodes.litebansadditions.lib.json</shadedPattern>
+                        </relocation>
+                        <relocation>
+                            <pattern>org.slf4j</pattern>
+                            <shadedPattern>pl.minecodes.litebansadditions.lib.slf4j</shadedPattern>
+                        </relocation>
+                        <relocation>
+                            <pattern>club.minnced.discord.webhook</pattern>
+                            <shadedPattern>pl.minecodes.litebansadditions.lib.webhooks</shadedPattern>
                         </relocation>
                     </relocations>
                 </configuration>
@@ -119,12 +143,23 @@
             <groupId>org.jetbrains</groupId>
             <artifactId>annotations</artifactId>
             <version>20.1.0</version>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.bstats</groupId>
             <artifactId>bstats-bukkit</artifactId>
             <version>2.2.1</version>
             <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.7.25</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>1.7.25</version>
         </dependency>
     </dependencies>
 
